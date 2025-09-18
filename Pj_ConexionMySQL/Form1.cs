@@ -149,7 +149,7 @@ namespace Pj_ConexionMySQL
             {
                 conexion.Open();
                 this.txtBuscar.Enabled = true;
-                obtenerTodos();
+                obtenerTodos();//nada
                 //MessageBox.Show("Conexión exitosa");
                 
             }
