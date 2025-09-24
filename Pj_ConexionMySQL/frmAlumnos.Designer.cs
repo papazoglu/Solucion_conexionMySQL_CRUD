@@ -1,14 +1,14 @@
 ﻿namespace Pj_ConexionMySQL
 {
-    partial class frmAlumnosForm
+    partial class frmAlumnos
     {
         /// <summary>
-        /// Required designer variable.
+        ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,119 +23,116 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            txtNombre = new TextBox();
-            txtDni = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            btnGuardar = new Button();
-            btnSaludar = new Button();
-            txtId = new TextBox();
+            dataGridView1 = new DataGridView();
+            button1 = new Button();
+            txtBuscar = new TextBox();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // txtNombre
+            // dataGridView1
             // 
-            txtNombre.Location = new Point(200, 115);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(100, 23);
-            txtNombre.TabIndex = 0;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(51, 81);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(696, 263);
+            dataGridView1.TabIndex = 0;
             // 
-            // txtDni
+            // button1
             // 
-            txtDni.Location = new Point(335, 115);
-            txtDni.Name = "txtDni";
-            txtDni.Size = new Size(100, 23);
-            txtDni.TabIndex = 1;
+            button1.Location = new Point(560, 10);
+            button1.Name = "button1";
+            button1.Size = new Size(93, 47);
+            button1.TabIndex = 3;
+            button1.Text = "Mostrar datos DataReader";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // label1
+            // txtBuscar
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(200, 97);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Nombre";
+            txtBuscar.Enabled = false;
+            txtBuscar.Location = new Point(51, 34);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(203, 23);
+            txtBuscar.TabIndex = 4;
             // 
-            // label2
+            // button2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(335, 97);
-            label2.Name = "label2";
-            label2.Size = new Size(27, 15);
-            label2.TabIndex = 3;
-            label2.Text = "DNI";
+            button2.Location = new Point(260, 29);
+            button2.Name = "button2";
+            button2.Size = new Size(52, 30);
+            button2.TabIndex = 5;
+            button2.Text = "Buscar";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
-            // label3
+            // button3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(113, 97);
-            label3.Name = "label3";
-            label3.Size = new Size(17, 15);
-            label3.TabIndex = 4;
-            label3.Text = "Id";
+            button3.Location = new Point(512, 370);
+            button3.Name = "button3";
+            button3.Size = new Size(105, 32);
+            button3.TabIndex = 6;
+            button3.Text = "modificar";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
-            // btnGuardar
+            // button4
             // 
-            btnGuardar.Location = new Point(327, 225);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(131, 32);
-            btnGuardar.TabIndex = 5;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
-            btnGuardar.Click += btnGuardar_Click;
+            button4.Location = new Point(377, 368);
+            button4.Name = "button4";
+            button4.Size = new Size(115, 34);
+            button4.TabIndex = 7;
+            button4.Text = "Nuevo";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
-            // btnSaludar
+            // button5
             // 
-            btnSaludar.Location = new Point(461, 37);
-            btnSaludar.Name = "btnSaludar";
-            btnSaludar.Size = new Size(122, 33);
-            btnSaludar.TabIndex = 6;
-            btnSaludar.Text = "Saludar";
-            btnSaludar.UseVisualStyleBackColor = true;
-            btnSaludar.Click += button1_Click;
+            button5.Location = new Point(634, 370);
+            button5.Name = "button5";
+            button5.Size = new Size(113, 33);
+            button5.TabIndex = 8;
+            button5.Text = "Eliminar";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
-            // txtId
-            // 
-            txtId.Location = new Point(113, 115);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(64, 23);
-            txtId.TabIndex = 7;
-            // 
-            // frmAlumnosForm
+            // frmAlumnos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(txtId);
-            Controls.Add(btnSaludar);
-            Controls.Add(btnGuardar);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(txtDni);
-            Controls.Add(txtNombre);
-            Name = "frmAlumnosForm";
-            Text = "frmAlumnos";
-            Load += frmAlumnos_Load;
-            Shown += frmAlumnosForm_Shown;
+            ClientSize = new Size(808, 431);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(txtBuscar);
+            Controls.Add(button1);
+            Controls.Add(dataGridView1);
+            Name = "frmAlumnos";
+            Text = "Form1";
+            Load += frmAlumnosLista_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox txtNombre;
-        private TextBox txtDni;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Button btnGuardar;
-        private Button btnSaludar;
-        private TextBox txtId;
+        private DataGridView dataGridView1;
+        private Button button1;
+        private TextBox txtBuscar;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
     }
 }
