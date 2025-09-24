@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,23 +14,23 @@ namespace Pj_ConexionMySQL
 {
     public partial class frmAlumnosForm : Form
     {
-        private MySqlConnection _coneccion;
+        //private MySqlConnection _coneccion;
         int _accion;
         private frmAlumnos _form1;
 
 
-        public frmAlumnosForm(MySqlConnection con, int accion, frmAlumnos form1)
+        public frmAlumnosForm(int accion, frmAlumnos form1)
         {
             InitializeComponent();
             _accion = accion;
-            _coneccion = con;
+            //_coneccion = con;
             this._form1 = form1;
         }
 
-        public frmAlumnosForm(MySqlConnection conexionActual, int id, String nombre, String dni, int accion, frmAlumnos form1)
+        public frmAlumnosForm(int id, String nombre, String dni, int accion, frmAlumnos form1)
         {
             InitializeComponent();
-            this._coneccion = conexionActual;
+            //this._coneccion = conexionActual;
             this.txtNombre.Text = nombre;
             this.txtDni.Text = dni;
             this.txtId.Text = Convert.ToString(id);
@@ -47,29 +48,37 @@ namespace Pj_ConexionMySQL
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //_coneccion.Open();
-            if (_accion == 1)
+            //var sqlConn = new MySqlConnection();
+            //var infiere que sqlConn es de tipo MySqlConnection()
+            using (var sqlConn = Conexion.getInstancia("root", "root").CrearConexion())
             {
-                string query = "insert into alumnos(nombre,dni)values(@nombre,@dni);";
-                MySqlCommand comando = new MySqlCommand(query, _coneccion);
-                //comando.Parameters.AddWithValue("@id", Convert.ToInt32(this.label3.Text) + 10);
-                comando.Parameters.AddWithValue("@nombre", this.txtNombre.Text);
-                comando.Parameters.AddWithValue("@dni", this.txtDni.Text);
-                int resul = comando.ExecuteNonQuery();
-                MessageBox.Show($"La consulta devolvio: {resul}");
+                sqlConn.Open();
+
+                if (_accion == 1)
+                {
+                    string query = "insert into alumnos(nombre,dni)values(@nombre,@dni);";
+                    MySqlCommand comando = new MySqlCommand(query, sqlConn);
+                    //comando.Parameters.AddWithValue("@id", Convert.ToInt32(this.label3.Text) + 10);
+                    comando.Parameters.AddWithValue("@nombre", this.txtNombre.Text);
+                    comando.Parameters.AddWithValue("@dni", this.txtDni.Text);
+                    int resul = comando.ExecuteNonQuery();
+                    MessageBox.Show($"La consulta devolvio: {resul}");
+                }
+                else
+                {
+                    string query = "update alumnos set nombre=@nombre, dni=@dni where id=@id";
+                    MySqlCommand comando = new MySqlCommand(query, sqlConn);
+                    comando.Parameters.AddWithValue("@id", this.txtId.Text);
+                    comando.Parameters.AddWithValue("@nombre", this.txtNombre.Text);
+                    comando.Parameters.AddWithValue("@dni", this.txtDni.Text);
+                    int resul = comando.ExecuteNonQuery();
+                    MessageBox.Show($"La consulta devolvio: {resul}");
+                }
+                this._form1.obtenerTodos();
+                this.Close();
+
             }
-            else
-            {
-                string query = "update alumnos set nombre=@nombre, dni=@dni where id=@id";
-                MySqlCommand comando = new MySqlCommand(query, _coneccion);
-                comando.Parameters.AddWithValue("@id", this.txtId.Text);
-                comando.Parameters.AddWithValue("@nombre", this.txtNombre.Text);
-                comando.Parameters.AddWithValue("@dni", this.txtDni.Text);
-                int resul = comando.ExecuteNonQuery();
-                MessageBox.Show($"La consulta devolvio: {resul}");
-            }
-            this._form1.obtenerTodos();
-            this.Close();
+            
 
         }
 
